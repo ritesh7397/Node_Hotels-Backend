@@ -19,7 +19,7 @@ app.get('/', function (req, res) {
 
 
 // Import the Router files
-const personRoutes = require('./routes/personRoutes');        // export wala yaha accept karna hai     // personRoutes require karna hai
+const personRoutes = require('./routes/personRoutes');      // export wala yaha accept karna hai // personRoutes require karna hai
 const menuItemRoutes = require('./routes/menuItemRoutes');    // menuItemRoutes require karna hai
 
 
