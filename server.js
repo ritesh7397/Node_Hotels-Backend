@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000; // q ki port ab .env me hai
 
 
 app.get('/', function (req, res) {
-    res.send('ye be hotel madh, THUS');
+    res.send('Welcome to our HOTEL');
 })
 
 
