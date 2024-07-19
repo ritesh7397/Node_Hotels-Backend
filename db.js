@@ -1,15 +1,24 @@
 const mongoose = require('mongoose'); // install moongose // npm i moongoose
+require('dotenv').config();  // URL .env me hai ab
+
 
 // 1). Define the MongoDB connection URL
 
-const mongoURL = 'mongodb://localhost:27017/hotels' // Replace mydatabase(hotels) with ur databse name
 
+//THIS IS LOCAL URL
+// const mongoURL = 'mongodb://localhost:27017/hotels' // Replace mydatabase(hotels) with ur databse name
+// const mongoURL = process.env.MONGODB_URL;
+ 
+
+// THIS IS ONLINE MONGODB CLUSTER AVAILABLE
+  const mongoURL = 'mongodb+srv://riteshnagrikar77:ritesh777@cluster0.5jze5qd.mongodb.net/'
+ //  const mongoURL = process.env.MONGODB_URL;
 
 
 
 // 2). Set up MongoDB Connection
 
-mongoose.connect(mongoURL)
+   mongoose.connect(mongoURL)
 
 // mongoose.connect(mongoURL, {
 //     useNewUrlParser: true,
