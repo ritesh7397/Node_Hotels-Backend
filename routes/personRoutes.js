@@ -1,7 +1,7 @@
 const express = require('express'); // express require hi hai
 const router = express.Router();  // router bhi chahiye
 
-const Person = require('../Models/Person'); // Models => Person.js  accept karega yaha
+const Person = require('../Models/Person'); // Models => Person.js  accept karega yaha // pehle server.js me accept kara tha
 
 
 
@@ -98,6 +98,8 @@ router.get('/:workType',async(req,res)=>{
 
 // PUT ROUTE TO UPDATE THE PERSON
 
+
+
 // id(unique hai) ke through apun data lege update karne le liye
 
 router.put('/:id', async (req, res) => {     // id ke bdle kuch bhi le skte
@@ -107,12 +109,12 @@ router.put('/:id', async (req, res) => {     // id ke bdle kuch bhi le skte
         // Assuming you have a Person model
 
         const response = await Person.findByIdAndUpdate(personId, updatedPersonData, {
-            // object id pass karege, dusra jo update karna hai
+            //personID = object id pass karege,  updatedPerson = dusra jo update karna hai
             new: true,              // Return the updated document
             runValidators: true,    // Run Mongoose validation
         })
 
-        if (!response) {
+        if (!response) {            // response is null
             return res.status(404).json({ error: 'Person not found'});
         }
         console.log("Data Updated");
@@ -127,7 +129,7 @@ router.put('/:id', async (req, res) => {     // id ke bdle kuch bhi le skte
 });
     
 
-
+// localhost:3000/person/ give id
 
 
 
@@ -145,9 +147,9 @@ router.delete('/:id', async (req, res) => {
         if (!response) {
         return res.status(404).json({ error: 'Person not found' });
         }
-        console.log("Data deleted");
+        console.log("Data Deleted");
         // Send a success message as a JSON response
-        res.status(200).json({ message: 'Person deleted successfully' });
+        res.status(200).json({ message: 'Person deleted Successfully' });
     } 
     catch (error) 
     {

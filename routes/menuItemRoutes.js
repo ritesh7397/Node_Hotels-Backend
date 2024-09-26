@@ -84,4 +84,59 @@ router.get('/:taste', async (req, res) =>{
     }
 })
 
+
+
+// PUT ROUTE TO UPDATE THE PERSON
+
+// id(unique hai) ke through apun data lege update karne le liye
+
+router.put('/:id',async(req,res)=>{
+    try{
+        const menuId = req.params.id;
+        const updatedMenuData = req.body;
+
+        const response = await MenuItem.findByIdAndUpdate(menuId, updatedMenuData,{
+
+            new:true,
+            runValidators: true,
+        })
+
+        if(!response){
+            return res.status(404).json({error: 'Menu not found'});
+        }
+        console.log("Data Updated");
+        res.status(200).json(response);
+
+    }
+    catch(error){
+        console.error('Erron updating person:',error);
+        res.status(500).json({error: 'Internal server error'})
+
+    }
+})
+
+
+
+// DELETE ROUTE TO DELETE THE PERSON
+
+
+router.delete('/:id',async(req,res)=>{
+    try{
+        const menuId = req.params.id
+
+        const response = await MenuItem.findByIdAndDelete(menuId);
+
+        if(!response){
+            return res.status(404).json({error: "Menu not found"});
+        }
+        console.log("Data Deleted")
+        res.status(200).json({message: 'Menu Deleted Successfully'})
+
+    }
+    catch(error){
+        console.log('Error deleting menu', error);
+        res.status(500).json({error: 'Internal server error'});
+
+    }
+})
 module.exports = router;

@@ -11,7 +11,8 @@ require('dotenv').config();  // URL .env me hai ab
  
 
 // THIS IS ONLINE MONGODB CLUSTER AVAILABLE
-   const mongoURL = process.env.MONGODB_URL;
+  const mongoURL = 'mongodb+srv://riteshnagrikar77:ritesh777@cluster0.5jze5qd.mongodb.net/'
+ //  const mongoURL = process.env.MONGODB_URL;
 
 
 
