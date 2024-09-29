@@ -7,11 +7,11 @@ require('dotenv').config();  // URL .env me hai ab
 
 //THIS IS LOCAL URL
 // const mongoURL = 'mongodb://localhost:27017/hotels' // Replace mydatabase(hotels) with ur databse name
-//  const mongoURL = process.env.MONGODB_URL_LOCAL;
+ const mongoURL = process.env.MONGODB_URL_LOCAL;
  
 
 // THIS IS ONLINE MONGODB CLUSTER AVAILABLE
- const mongoURL = process.env.MONGODB_URL;
+//  const mongoURL = process.env.MONGODB_URL;
 
 
 
