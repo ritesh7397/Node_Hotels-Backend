@@ -1,6 +1,7 @@
 const express = require('express') // npm i express
 const app = express();
 const db = require('./db');
+const cors = require('cors');
 require('dotenv').config();  // URL .env me hai ab
 
 
@@ -9,6 +10,7 @@ require('dotenv').config();  // URL .env me hai ab
 app.use(express.json());
 
 
+app.use(cors());
 
 
 const PORT = process.env.PORT || 3000; // q ki port ab .env me hai
@@ -21,12 +23,10 @@ app.get('/', function (req, res) {
 })
 
 
-
-
 // Import the Router files
 
 
-const personRoutes = require('./routes/personRoutes');      // export wala yaha accept karna hai // personRoutes require karna hai
+const personRoutes = require('./routes/personRoutes');         // export wala yaha accept karna hai // personRoutes require karna hai
 const menuItemRoutes = require('./routes/menuItemRoutes');    // menuItemRoutes require karna hai
 
 // Use the routers
@@ -35,7 +35,7 @@ app.use('/menu', menuItemRoutes); // // we used here /menu
 
 
 
-app.listen(PORT, () => {                  // replace 3000 to PORT
+app.listen(PORT, () => {                            // replace 3000 to PORT
     console.log('listening on port 3000')
 })
 

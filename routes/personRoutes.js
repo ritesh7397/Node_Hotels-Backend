@@ -94,12 +94,12 @@ router.get('/:workType',async(req,res)=>{
 // PUT ROUTE TO UPDATE THE PERSON
 
 
-// id(unique hai) ke through apun data lege update karne le liye
+// id(unique hai), :id variable hai ke through apun data lege update karne le liye
 
 router.put('/:id', async (req, res) => {     // id ke bdle kuch bhi le skte
     try {
         const personId = req.params.id;     // Extract the person's ID  from the URL parameter
-        const updatedPersonData = req.body; //jo bhi data client bhj raha hai use body parser me save karta Updated data for the person
+        const updatedPersonData = req.body; //jo bhi data client bhj raha hai use body parser me save karta, Updated data for the person
         // Assuming you have a Person model
 
         const response = await Person.findByIdAndUpdate(personId, updatedPersonData, {
